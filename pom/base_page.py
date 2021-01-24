@@ -10,6 +10,7 @@ class BasePage:
     DRIVER = None
     def __init__(self):
         chromdriverpath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedriver'))
+        print(chromdriverpath)
         desired_caps = {
             'platformName': 'Android',  # 操作系统
             'platformVersion': '8.0.0',  # Android的版本
@@ -29,4 +30,4 @@ class BasePage:
             self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
         BasePage.DRIVER = self.driver
         # 设置全局的隐式等待
-        self.driver.implicitly_wait(3)
+        self.driver.implicitly_wait(5)

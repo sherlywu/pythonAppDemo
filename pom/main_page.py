@@ -25,3 +25,13 @@ class MainPage(BasePage):
         点击创建话题按钮
         :return:
         """
+        topic_btn_id = 'org.cnodejs.android.md:id/fab_create_topic'
+        self.driver.find_element_by_id(topic_btn_id).click()
+
+    def select_topic(self, index):
+        """
+        选择某个话题
+        :return:
+        """
+        xpath = f'//android.widget.LinearLayout[{index}]//android.widget.LinearLayout[@resource-id="org.cnodejs.android.md:id/btn_topic"]'
+        self.driver.find_element_by_xpath(xpath).click()
