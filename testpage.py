@@ -34,13 +34,13 @@ if __name__ == '__main__':
     # createpage.ceate_topic('问答', '这是app自动化测试标题', '这是app自动化测试代码发布的内容')
 
     # 选择话题
-    # mainpage.select_topic(3)
+    # mainpage.select_topic(1)
     # 评论话题
     # topicdetail = TopicDetail()
     # topicdetail.reply_topic('这是app自动化测试代码自动回复的评论哦~')
 
     # 选择话题
     topicdetail = TopicDetail()
-    mainpage.select_topic(1)
+    mainpage.select_topic(3)
     # 点赞评论
-    topicdetail.up_topic()
+    topicdetail.up_topic(2)

@@ -10,7 +10,6 @@ class BasePage:
     DRIVER = None
     def __init__(self):
         chromdriverpath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedriver'))
-        print(chromdriverpath)
         desired_caps = {
             'platformName': 'Android',  # 操作系统
             'platformVersion': '8.0.0',  # Android的版本
