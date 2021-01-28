@@ -30,3 +30,14 @@ class BasePage:
         BasePage.DRIVER = self.driver
         # 设置全局的隐式等待
         self.driver.implicitly_wait(5)
+
+    def get_toast_text(self):
+        # 根据Android开发文档中推测 组件名为 	android.widget.Toast
+        ele = self.driver.find_element_by_xpath('//android.widget.Toast')
+        # 返回文本值
+        return ele.text
+
+    def back_mainpage(self):
+        # 点击返回按钮回到首页
+        self.driver.find_element_by_xpath('//android.widget.ImageButton[@index="0"]').click()
+

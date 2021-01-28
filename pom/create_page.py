@@ -29,5 +29,3 @@ class CreatePage(BasePage):
         # 点击发布按钮
         self.driver.find_element_by_id('org.cnodejs.android.md:id/action_send').click()
 
-        # 点击返回按钮回到首页
-        self.driver.find_element_by_xpath('//android.widget.ImageButton[@index="0"]').click()
