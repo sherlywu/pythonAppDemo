@@ -12,8 +12,8 @@ class BasePage:
         chromdriverpath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'chromedriver'))
         desired_caps = {
             'platformName': 'Android',  # 操作系统
-            'platformVersion': '8.0.0',  # Android的版本
-            'deviceName': 'ac35bdba',  # adb devices 的设备串号值
+            'platformVersion': '10',  # Android的版本
+            'deviceName': '5ENDU19B01011350',  # adb devices 的设备串号值
             'automationName': 'UiAutomator2',
             'appPackage': 'org.cnodejs.android.md',  # 指定启动的包名
             'appActivity': '.ui.activity.LaunchActivity',  # 指定启动的app 启动页名称

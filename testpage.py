@@ -17,7 +17,7 @@ if __name__ == '__main__':
     # text = loginpage.get_login_status()
     # print('text:', text)
 
-    # 点击2次发布话题按钮关闭抽屉页，进入创建话题页
+    # # 点击2次发布话题按钮关闭抽屉页，进入创建话题页
     # mainpage.click_create_topic_btn()
     # mainpage.click_create_topic_btn()
 
@@ -29,9 +29,9 @@ if __name__ == '__main__':
     mainpage.select_topic(1)
     # 回复话题
     reply = ReplyPage()
-    # reply.reply('这是app自动化测试代码自动回复的评论哦~')
+    reply.reply('这是app自动化测试代码自动回复的评论哦~')
     # 给回复点赞
-    reply.click_up(1)
+    reply.click_up(2)
 
     # 获取toast文本值
     # text = replypage.get_toast_text()
