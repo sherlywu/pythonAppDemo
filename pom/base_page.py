@@ -37,7 +37,9 @@ class BasePage:
         # 返回文本值
         return ele.text
 
-    def back_mainpage(self):
-        # 点击返回按钮回到首页
-        self.driver.find_element_by_xpath('//android.widget.ImageButton[@index="0"]').click()
+    def right_swipe(self):
+        rect = self.driver.get_window_rect()
+        x = rect.get('width')
+        y = rect.get('height')
+        self.driver.swipe(start_x=x - 10, end_x=10, start_y=y / 2, end_y=y / 2, duration=400)
 

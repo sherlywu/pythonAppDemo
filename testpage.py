@@ -1,3 +1,5 @@
+import time
+
 from pom.main_page import MainPage
 from pom.login_page import LoginPage
 from pom.toggle_page import TogglePage
@@ -19,19 +21,20 @@ if __name__ == '__main__':
 
     # # 点击2次发布话题按钮关闭抽屉页，进入创建话题页
     # mainpage.click_create_topic_btn()
-    # mainpage.click_create_topic_btn()
+    mainpage.click_create_topic_btn()
 
     # 发布话题
-    # createpage = CreatePage()
-    # createpage.ceate_topic('问答', '这是app自动化测试标题', '这是app自动化测试代码发布的内容')
-    # mainpage.back_mainpage()
+    createpage = CreatePage()
+    createpage.ceate_topic('问答', '这是app自动化测试标题', '这是app自动化测试代码发布的内容')
+    time.sleep(1)
+    createpage.driver.back()
     # 选择话题
     mainpage.select_topic(1)
     # 回复话题
     reply = ReplyPage()
     reply.reply('这是app自动化测试代码自动回复的评论哦~')
     # 给回复点赞
-    reply.click_up(2)
+    reply.click_up(1)
 
     # 获取toast文本值
     # text = replypage.get_toast_text()
