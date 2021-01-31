@@ -6,7 +6,22 @@ import time
 from pom.main_page import MainPage
 from pom.toggle_page import TogglePage
 from pom.create_page import CreatePage
+import pytest
 
+@pytest.mark.skip(reason='未实现')
+class TestUser:
+
+    def test_login(self):
+        """
+        :return:
+        """
+
+    def test_logout(self):
+        """
+        :return:
+        """
+
+@pytest.mark.order(1)
 class TestScore:
     """
     主要测试积分功能
@@ -60,3 +75,5 @@ class TestScore:
         print("新积分:", newscore)
         # 断言 积分能够增加 5积分  TestScore.score 在第一个用例中已经将值更新
         assert int(newscore[3:]) == TestScore.score + 5
+
+        togglepage.driver.back()

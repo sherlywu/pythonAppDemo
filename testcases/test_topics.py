@@ -2,7 +2,8 @@ from pom.main_page import MainPage
 from pom.create_page import CreatePage
 import pytest
 
-def test_ceate_topic():
+@pytest.mark.order(3)
+def test_create_topic():
     """
     编写发布话题测试用例
     :return:

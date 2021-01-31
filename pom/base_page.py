@@ -43,5 +43,9 @@ class BasePage:
         y = rect.get('height')
         self.driver.swipe(start_x=x - 10, end_x=10, start_y=y / 2, end_y=y / 2, duration=400)
 
+    def back_mainpage(self):
+        back_xpath = '//android.view.ViewGroup[@resource-id="org.cnodejs.android.md:id/toolbar"]/android.widget.ImageButton'
+        self.driver.find_element_by_xpath(back_xpath).click()
+
 
 
