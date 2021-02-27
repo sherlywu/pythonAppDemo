@@ -77,3 +77,4 @@ class TestScore:
         assert int(newscore[3:]) == TestScore.score + 5
 
         togglepage.driver.back()
+        print('返回了首页')

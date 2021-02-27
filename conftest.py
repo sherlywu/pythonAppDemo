@@ -4,6 +4,10 @@ import time
 from pom.base_page import BasePage
 
 basepage = BasePage()
+ # 设置图片字典
+iamgeinfo = {
+    "file_path": ""
+}
 
 @pytest.fixture(scope='function', autouse=True)
 def function_run():
@@ -20,6 +24,8 @@ def function_run():
     filename = time.strftime('%Y_%m_%d_%H_%M_%S')
     # 4、设置文件路径
     filepath = os.path.join(screetshots, filename+'.png')
+    # 保存文件路径到字典
+    iamgeinfo['file_path'] = filepath
     # 5、截图操作
     basepage.driver.save_screenshot(filepath)
 
@@ -41,3 +47,24 @@ def session_run():
     yield
     # print('所有的用例执行之后的操作')
     basepage.driver.quit()
+
+import pytest
+
+# 添加文件
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    pytest_html = item.config.pluginmanager.getplugin("html")
+    outcome = yield
+    report = outcome.get_result()
+    extra = getattr(report, "extra", [])
+    if report.when == "call":
+        # always add url to report
+        #  传入文件路径  在测试报告中添加文件
+        extra.append(pytest_html.extras.image(iamgeinfo['file_path']))
+        xfail = hasattr(report, "wasxfail")
+        # 当运行失败的时候
+        if (report.skipped and xfail) or (report.failed and not xfail):
+            # only add additional html on failure
+            extra.append(pytest_html.extras.html("<div>Additional HTML</div>"))
+        report.extra = extra
